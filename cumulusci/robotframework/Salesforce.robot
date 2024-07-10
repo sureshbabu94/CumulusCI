@@ -137,8 +137,8 @@ Open Test Browser Firefox
     ...
     ...  The firefox profile is set to accept all cookies.
 
-    [Arguments]     ${login_url}  ${alias}=${NONE}  ${options}=${NONE}
-    Open Browser  ${login_url}  firefox  alias=${alias}  options=${options}
+    [Arguments]     ${login_url}  ${alias}=${NONE}  ${options}=${NONE}  ${ff_profile_dir}=${NONE}
+    Open Browser  ${login_url}  firefox  alias=${alias}  options=${options}  ff_profile_dir=${ff_profile_dir}
     #    http://kb.mozillazine.org/Network.cookie.cookieBehavior
     ...  ff_profile_dir=set_preference("network.cookie.cookieBehavior", 0)
 

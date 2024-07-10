@@ -100,12 +100,12 @@ Open Test Browser
     ...  The keyword will also call `Wait Until Salesforce is Ready` unless
     ...  the `wait` parameter is set to False.
 
-    [Arguments]  ${size}=${DEFAULT BROWSER SIZE}  ${alias}=${NONE}  ${wait}=True  ${useralias}=${NONE}  ${options}=${NONE}
+    [Arguments]  ${size}=${DEFAULT BROWSER SIZE}  ${alias}=${NONE}  ${wait}=True  ${useralias}=${NONE}  ${options}=${NONE}    ${ff_profile_dir}=${NONE}
     ${login_url}=  Run keyword if  $useralias  Login URL  alias=${useralias}
     ...  ELSE  Login URL
 
     Run Keyword If  '${BROWSER}' == 'chrome'  Open Test Browser Chrome  ${login_url}  alias=${alias}
-    ...    ELSE IF  '${BROWSER}' == 'firefox'  Open Test Browser Firefox  ${login_url}  alias=${alias}  options=${NONE}
+    ...    ELSE IF  '${BROWSER}' == 'firefox'  Open Test Browser Firefox  ${login_url}  alias=${alias}  options=${NONE}    ff_profile_dir=${ff_profile_dir}
     ...    ELSE IF  '${BROWSER}' == 'headlesschrome'  Open Test Browser Chrome  ${login_url}  alias=${alias}
     ...    ELSE IF  '${BROWSER}' == 'headlessfirefox'  Open Test Browser Headless Firefox  ${login_url}  alias=${alias}
     ...    ELSE  Open Browser  ${login_url}  ${BROWSER}  alias=${alias}

@@ -100,12 +100,12 @@ Open Test Browser
     ...  The keyword will also call `Wait Until Salesforce is Ready` unless
     ...  the `wait` parameter is set to False.
 
-    [Arguments]  ${size}=${DEFAULT BROWSER SIZE}  ${alias}=${NONE}  ${wait}=True  ${useralias}=${NONE}
+    [Arguments]  ${size}=${DEFAULT BROWSER SIZE}  ${alias}=${NONE}  ${wait}=True  ${useralias}=${NONE}  ${options}=${NONE}
     ${login_url}=  Run keyword if  $useralias  Login URL  alias=${useralias}
     ...  ELSE  Login URL
 
     Run Keyword If  '${BROWSER}' == 'chrome'  Open Test Browser Chrome  ${login_url}  alias=${alias}
-    ...    ELSE IF  '${BROWSER}' == 'firefox'  Open Test Browser Firefox  ${login_url}  alias=${alias}
+    ...    ELSE IF  '${BROWSER}' == 'firefox'  Open Test Browser Firefox  ${login_url}  alias=${alias}  options=${NONE}
     ...    ELSE IF  '${BROWSER}' == 'headlesschrome'  Open Test Browser Chrome  ${login_url}  alias=${alias}
     ...    ELSE IF  '${BROWSER}' == 'headlessfirefox'  Open Test Browser Headless Firefox  ${login_url}  alias=${alias}
     ...    ELSE  Open Browser  ${login_url}  ${BROWSER}  alias=${alias}
@@ -137,8 +137,8 @@ Open Test Browser Firefox
     ...
     ...  The firefox profile is set to accept all cookies.
 
-    [Arguments]     ${login_url}  ${alias}=${NONE}
-    Open Browser  ${login_url}  firefox  alias=${alias}
+    [Arguments]     ${login_url}  ${alias}=${NONE}  ${options}=${NONE}
+    Open Browser  ${login_url}  firefox  alias=${alias}  options=${options}
     #    http://kb.mozillazine.org/Network.cookie.cookieBehavior
     ...  ff_profile_dir=set_preference("network.cookie.cookieBehavior", 0)
 

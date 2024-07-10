@@ -123,8 +123,8 @@ Open Test Browser Chrome
     ...  This keyword isn't normally called directly by a test. It is used
     ...  by the `Open Test Browser` keyword.
 
-    [Arguments]     ${login_url}  ${alias}=${NONE}
-    ${options} =                Get Chrome Options
+    [Arguments]     ${login_url}  ${alias}=${NONE}  ${options}=${NONE}
+#    ${options} =                Get Chrome Options
     Create Webdriver With Retry  Chrome  options=${options}  alias=${alias}
     Set Selenium Implicit Wait  ${IMPLICIT_WAIT}
     Set Selenium Timeout        ${TIMEOUT}

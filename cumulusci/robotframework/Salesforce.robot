@@ -103,7 +103,7 @@ Open Test Browser
     [Arguments]  ${size}=${DEFAULT BROWSER SIZE}  ${alias}=${NONE}  ${wait}=True  ${useralias}=${NONE}  ${options}=${NONE}    ${ff_profile_dir}=${NONE}
     ${login_url}=  Run keyword if  $useralias  Login URL  alias=${useralias}
     ...  ELSE  Login URL
-
+    log   ${ff_profile_dir}
     Run Keyword If  '${BROWSER}' == 'chrome'  Open Test Browser Chrome  ${login_url}  alias=${alias}
     ...    ELSE IF  '${BROWSER}' == 'firefox'  Open Test Browser Firefox  ${login_url}  alias=${alias}  options=${NONE}    ff_profile_dir=${ff_profile_dir}
     ...    ELSE IF  '${BROWSER}' == 'headlesschrome'  Open Test Browser Chrome  ${login_url}  alias=${alias}
@@ -142,7 +142,7 @@ Open Test Browser Firefox
     Log    ${ff_profile_dir}
     Log    Installed firefox profile customised
     #    http://kb.mozillazine.org/Network.cookie.cookieBehavior
-    ...  ff_profile_dir=set_preference("network.cookie.cookieBehavior", 0)
+    #...  ff_profile_dir=set_preference("network.cookie.cookieBehavior", 0)
 
 Open Test Browser Headless Firefox
     [Documentation]  Opens the firefox browser in headless mode

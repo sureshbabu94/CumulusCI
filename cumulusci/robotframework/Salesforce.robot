@@ -107,7 +107,7 @@ Open Test Browser
     Run Keyword If  '${BROWSER}' == 'chrome'  Open Test Browser Chrome  ${login_url}  alias=${alias}
     ...    ELSE IF  '${BROWSER}' == 'firefox'  Open Test Browser Firefox  ${login_url}  alias=${alias}  options=${NONE}    ff_profile_dir=${ff_profile_dir}
     ...    ELSE IF  '${BROWSER}' == 'headlesschrome'  Open Test Browser Chrome  ${login_url}  alias=${alias}
-    ...    ELSE IF  '${BROWSER}' == 'headlessfirefox'  Open Test Browser Headless Firefox  ${login_url}  alias=${alias}
+    ...    ELSE IF  '${BROWSER}' == 'headlessfirefox'  Open Test Browser Headless Firefox  ${login_url}  alias=${alias}  options=${NONE}    ff_profile_dir=${ff_profile_dir}
     ...    ELSE  Open Browser  ${login_url}  ${BROWSER}  alias=${alias}
     ${should_wait}=  convert to boolean  ${wait}
     Run keyword if  $should_wait  Wait Until Salesforce Is Ready  timeout=180
@@ -151,10 +151,10 @@ Open Test Browser Headless Firefox
     ...
     ...  The firefox profile is set to accept all cookies.
 
-    [Arguments]     ${login_url}  ${alias}=${NONE}
-    Open Browser  ${login_url}  headlessfirefox  alias=${alias}
+    [Arguments]     ${login_url}  ${alias}=${NONE}  ${options}=${NONE}  ${ff_profile_dir}=${NONE}
+    Open Browser  ${login_url}  headlessfirefox  alias=${alias}  options=${options}  ff_profile_dir=${ff_profile_dir}
     #    http://kb.mozillazine.org/Network.cookie.cookieBehavior
-    ...  ff_profile_dir=set_preference("network.cookie.cookieBehavior", 0)
+    #...  ff_profile_dir=set_preference("network.cookie.cookieBehavior", 0)
 
 Get Chrome Options
     [Documentation]

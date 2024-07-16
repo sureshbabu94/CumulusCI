@@ -139,11 +139,8 @@ Open Test Browser Firefox
 
     [Arguments]     ${login_url}  ${alias}=${NONE}  ${options}=${NONE}  ${ff_profile_dir}=${NONE}
     Open Browser  ${login_url}  firefox  alias=${alias}  options=${options}  ff_profile_dir=${ff_profile_dir}
-    IF    not ${ff_profile_dir}
-        ff_profile_dir=set_preference("network.cookie.cookieBehavior", 0)
-    ELSE
-        Log    ${ff_profile_dir}
-        Log    Installed firefox profile customised
+    Log    ${ff_profile_dir}
+    Log    Installed firefox profile customised
     END
     #IF    '${ff_profile_dir}' == 'None'
     #    ff_profile_dir=set_preference("network.cookie.cookieBehavior", 0)
@@ -163,9 +160,6 @@ Open Test Browser Headless Firefox
 
     [Arguments]     ${login_url}  ${alias}=${NONE}  ${options}=${NONE}  ${ff_profile_dir}=${NONE}
     Open Browser  ${login_url}  headlessfirefox  alias=${alias}  options=${options}  ff_profile_dir=${ff_profile_dir}
-    IF    not ${ff_profile_dir}
-        ff_profile_dir=set_preference("network.cookie.cookieBehavior", 0)
-    END
     #IF    '${ff_profile_dir}' == 'None'
     #    ff_profile_dir=set_preference("network.cookie.cookieBehavior", 0)
     #END

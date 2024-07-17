@@ -82,7 +82,7 @@ def main(args=None):
                 handle_exception(e, is_error_command, tempfile_path, debug)
                 sys.exit(1)
 
-            runtime.check_cumulusci_version()
+            #runtime.check_cumulusci_version()
             should_show_stacktraces = runtime.universal_config.cli__show_stacktraces
 
             init_logger(debug=debug)

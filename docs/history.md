@@ -1,6 +1,16 @@
 # History
 
 <!-- latest-start -->
+## v0.0.4 (2024-07-17)
+
+<!-- Release notes generated using configuration in .github/release.yml at main -->
+
+## What's Changed
+
+### Changes 🎉
+
+
+-   commented cci.py:85 runtime.check_cumulusci_version()
 
 ## v0.0.3 (2024-07-17)
 

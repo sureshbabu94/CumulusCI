@@ -5,7 +5,7 @@ build-backend = "hatchling.build"
 [project]
 name = "cumulusci-extended"
 dynamic = ["readme", "version"]
-description = "Build and release tools for Salesforce developers"
+description = "Unofficial Test tool for Salesforce Test Automation developers"
 license = { text = "BSD 3-Clause License" }
 requires-python = ">=3.8"
 authors = [

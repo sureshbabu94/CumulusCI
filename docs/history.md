@@ -1,5 +1,7 @@
 # History
 
+<!-- latest-start -->
+
 <!-- Release notes generated using configuration in .github/release.yml at main -->
 
 ## What's Changed

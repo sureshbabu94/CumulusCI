@@ -140,14 +140,15 @@ Open Test Browser Firefox
     ...
     ...  The firefox profile is set to accept all cookies.
 
-    [Arguments]     ${login_url}  ${alias}=${NONE}  ${options}=${NONE}  ${ff_profile_dir}=${NONE}
-    Open Browser  ${login_url}  firefox  alias=${alias}  options=${options}  ff_profile_dir=${ff_profile_dir}
+   [Arguments]     ${login_url}  ${alias}=${NONE}  ${options}=${NONE}  ${ff_profile_dir}=${NONE}
     ${ff_profile_string_type}=    Evaluate    "${ff_profile_dir.__class__.__name__}"
-    IF    ${ff_profile_string_type} == 'NoneType'
-        ff_profile_dir=set_preference("network.cookie.cookieBehavior", 0)
+    IF    '${ff_profile_string_type}' == 'NoneType'
+
+        Open Browser  ${login_url}  firefox  alias=${alias}
+        ...    ff_profile_dir=set_preference("network.cookie.cookieBehavior", 0)
     ELSE
-        Log    ${ff_profile_dir}
-        Log    Installed firefox profile customised
+        Open Browser  ${login_url}  firefox  alias=${alias}  options=${options}  ff_profile_dir=${ff_profile_dir}
+
     END
     #    http://kb.mozillazine.org/Network.cookie.cookieBehavior
     #...  ff_profile_dir=set_preference("network.cookie.cookieBehavior", 0)
@@ -160,10 +161,14 @@ Open Test Browser Headless Firefox
     ...  The firefox profile is set to accept all cookies.
 
     [Arguments]     ${login_url}  ${alias}=${NONE}  ${options}=${NONE}  ${ff_profile_dir}=${NONE}
-    Open Browser  ${login_url}  headlessfirefox  alias=${alias}  options=${options}  ff_profile_dir=${ff_profile_dir}
     ${ff_profile_string_type}=    Evaluate    "${ff_profile_dir.__class__.__name__}"
-    IF    ${ff_profile_string_type} == 'NoneType'
-        ff_profile_dir=set_preference("network.cookie.cookieBehavior", 0)
+    IF    '${ff_profile_string_type}' == 'NoneType'
+
+        Open Browser  ${login_url}  headlessfirefox  alias=${alias}
+        ...    ff_profile_dir=set_preference("network.cookie.cookieBehavior", 0)
+    ELSE
+        Open Browser  ${login_url}  headlessfirefox  alias=${alias}  options=${options}  ff_profile_dir=${ff_profile_dir}
+
     END
     #    http://kb.mozillazine.org/Network.cookie.cookieBehavior
     #...  ff_profile_dir=set_preference("network.cookie.cookieBehavior", 0)

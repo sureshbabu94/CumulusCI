@@ -100,6 +100,9 @@ Open Test Browser
     ...  The keyword will also call `Wait Until Salesforce is Ready` unless
     ...  the `wait` parameter is set to False.
 
+    ...  use ${options} only for firefox browsers- Optional
+    ...  use ${ff_profile_dir}  only for firefox browsers- Optional
+
     [Arguments]  ${size}=${DEFAULT BROWSER SIZE}  ${alias}=${NONE}  ${wait}=True  ${useralias}=${NONE}  ${options}=${NONE}    ${ff_profile_dir}=${NONE}
     ${login_url}=  Run keyword if  $useralias  Login URL  alias=${useralias}
     ...  ELSE  Login URL
@@ -123,8 +126,8 @@ Open Test Browser Chrome
     ...  This keyword isn't normally called directly by a test. It is used
     ...  by the `Open Test Browser` keyword.
 
-    [Arguments]     ${login_url}  ${alias}=${NONE}  ${options}=${NONE}
-#    ${options} =                Get Chrome Options
+    [Arguments]     ${login_url}  ${alias}=${NONE}
+    ${options} =                Get Chrome Options
     Create Webdriver With Retry  Chrome  options=${options}  alias=${alias}
     Set Selenium Implicit Wait  ${IMPLICIT_WAIT}
     Set Selenium Timeout        ${TIMEOUT}

@@ -96,7 +96,7 @@ def check_latest_version():
             click.echo(str(e), err=True)
             return
 
-        result = 0.0.8
+        result = "0.0.8"
         return
         if result:
             click.echo(

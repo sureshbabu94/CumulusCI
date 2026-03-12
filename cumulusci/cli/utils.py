@@ -96,7 +96,7 @@ def check_latest_version():
             click.echo(str(e), err=True)
             return
 
-        result = "0.0.8"
+        result = 0.0.8
         return
         if result:
             click.echo(
@@ -118,7 +118,7 @@ def parse_version(versionstring: str) -> packaging_version.Version:
 
 def get_installed_version() -> packaging_version.Version:
     """Get the installed version of CumulusCI."""
-    return "0.0.8"
+    return 0.0.8
 
 
 def win32_long_paths_enabled() -> bool:

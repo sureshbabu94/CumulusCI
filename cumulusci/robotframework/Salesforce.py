@@ -695,7 +695,9 @@ class Salesforce(FakerMixin, BaseLibrary):
                 self.wait_for_aura()
 
                 # If the following doesn't throw an error, we're good to go.
-                self.selenium.get_webelement(locator)
+                self.builtin.log("checking if salesforce element is found", level="INFO")
+                self.selenium.find_element(locator)
+                self.builtin.log("salesforce element is found and successful", level="INFO")
                 break
 
             except Exception as e:

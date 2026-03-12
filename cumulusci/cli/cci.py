@@ -159,7 +159,8 @@ def show_version_info():
 
     current_version = get_installed_version()
     latest_version = get_latest_final_version()
-
+    console.print("You have the Customised version of CumulusCI: 0.0.8\n")
+    return
     if not latest_version > current_version:
         console.print("You have the latest version of CumulusCI :sun_behind_cloud:\n")
         display_release_notes_link(str(latest_version))

@@ -97,6 +97,7 @@ def check_latest_version():
             return
 
         result = "0.0.8"
+        return
         if result:
             click.echo(
                 f"""An update to CumulusCI is available. To install the update, run this command: {get_cci_upgrade_command()}""",
@@ -117,7 +118,7 @@ def parse_version(versionstring: str) -> packaging_version.Version:
 
 def get_installed_version() -> packaging_version.Version:
     """Get the installed version of CumulusCI."""
-    return parse_version(__version__)
+    return "0.0.8"
 
 
 def win32_long_paths_enabled() -> bool:

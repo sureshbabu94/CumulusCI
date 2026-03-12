@@ -150,6 +150,7 @@ Open Test Browser Headless Firefox
     ...  The firefox profile is set to accept all cookies.
 
     [Arguments]     ${login_url}  ${alias}=${NONE}
+    Log    "Opening headless firefox"
     Open Browser  ${login_url}  headlessfirefox  alias=${alias}
     #    http://kb.mozillazine.org/Network.cookie.cookieBehavior
     ...  ff_profile_dir=set_preference("network.cookie.cookieBehavior", 0)

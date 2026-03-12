@@ -96,7 +96,7 @@ def check_latest_version():
             click.echo(str(e), err=True)
             return
 
-        result = latest_version > get_installed_version()
+        result = "0.0.8"
         if result:
             click.echo(
                 f"""An update to CumulusCI is available. To install the update, run this command: {get_cci_upgrade_command()}""",
